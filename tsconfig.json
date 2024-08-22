@@ -20,13 +20,19 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".", // Add this line to set the base URL to the project root
+    "paths": {
+      "@lib/*": ["lib/*"] // Add this line to map the @lib alias to the lib directory
+    }
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.js",  // Add this to include JS files
+    "**/*.jsx"  // Add this to include JSX files
   ],
   "exclude": [
     "node_modules"

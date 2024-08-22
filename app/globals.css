@@ -29,25 +29,6 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-
-    /* Gradient colors */
-    --secondary-glow: conic-gradient(
-      from 10deg at 50% 50%,
-      #eb7494 0deg,
-      #ae77b2 55deg,
-      #97b5da 120deg,
-      #0099ca 160deg,
-      transparent 360deg
-    );
-
-    --third-glow: conic-gradient(
-      from 90deg at 50% 50%,
-      #ff8b7e 0deg,
-      #e24e6b 160deg,
-      #7ed2da 120deg,
-      #8bdce0 55deg,
-      transparent 360deg
-    );
   }
 
   .dark {
@@ -76,64 +57,13 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground relative overflow-hidden;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      opacity: 0.8;
-      border-radius: 50%;
-      filter: blur(90px);
-    }
-
-    &::before {
-      background: var(--third-glow);
-      width: 50vw;
-      height: 50vw;
-      top: calc(50vh - 50vw / 2);
-      left: calc(50vw - 50vw / 2);
-      animation: animateBefore 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-    }
-
-    &::after {
-      background: var(--secondary-glow);
-      width: 500px;
-      height: 700px;
-      top: calc(50vh - 50vw / 2);
-      left: calc(50vw - 50vw / 2);
-      animation: animateAfter 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-    }
-  }
-
-  @keyframes animateBefore {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(200px) scale(0.8);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes animateAfter {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-250px) scale(1.2);
-    }
-    100% {
-      transform: translateX(0);
-    }
+    @apply bg-background text-foreground;
   }
 }
